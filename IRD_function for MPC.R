@@ -13,7 +13,7 @@ IRD <- function(data){
   
   mat <- matrix(NA,nrow = nrow(comp.dat), ncol = 3)
   for (i in 1:nrow(comp.dat)){
-    RD <- ratedifference(comp.dat[i,'aesi.x'], comp.dat[i,'aesi'], comp.dat[i,'fu.x'], comp.dat[i,'fu.y'], CRC = FALSE, conf.level = 0.95)
+    RD <- ratedifference(comp.dat[i,'aesi.x'], comp.dat[i,'aesi.y'], comp.dat[i,'fu.x'], comp.dat[i,'fu.y'], CRC = FALSE, conf.level = 0.95)
     mat[i,] <- round(c(RD$estimate, RD$conf.int),digits = 4)
   }
   mat[which(comp.dat$state.x == "Baseline"),] <- c(0,0,0)
